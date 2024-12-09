@@ -2,26 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800");
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 160 38% 93%;
+    --foreground: 0 0% 5%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 160 100% 18%;
+    --primary-foreground: 160 35% 93%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted-foreground: 160 15% 18%;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
@@ -73,10 +69,64 @@ body {
   }
 }
 
-
-h1,h2,h3,h4,h5,h6 {
+body {
   font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 500;
   font-style: normal;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  @apply text-6xl;
+  @media screen and (max-width: 768px) {
+    @apply text-5xl;
+  }
+}
+
+h2 {
+  @apply text-3xl;
+  @media screen and (max-width: 768px) {
+    @apply text-2xl;
+  }
+}
+
+h3 {
+  @apply text-2xl;
+  @media screen and (max-width: 768px) {
+    @apply text-xl;
+  }
+}
+
+h4 {
+  @apply text-xl;
+  @media screen and (max-width: 768px) {
+    @apply text-lg;
+  }
+}
+
+h5 {
+  @apply text-lg;
+  @media screen and (max-width: 768px) {
+    @apply text-base;
+  }
+}
+
+h6 {
+  @apply text-base;
+  @media screen and (max-width: 768px) {
+    @apply text-sm;
+  }
+}
+
+a {
+  @apply text-primary;
+  text-decoration: underline;
 }
