@@ -8,11 +8,11 @@ export default async function Home({ params }) {
   const locale = await params.locale;
 
   return (
-    <StandardLayout locale={locale}>
+    <>
       <Hero locale={locale} />
       <Features locale={locale} />
       <Integration locale={locale} />
       <FAQ locale={locale} />
-    </StandardLayout>
+    </>
   );
 }
