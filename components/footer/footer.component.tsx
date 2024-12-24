@@ -223,13 +223,13 @@ function Footer({ locale }: Props) {
             <h3 className="font-bold">{t.categories.legal.title}</h3>
             <ul>
               <li>
-                <Link href="/cookies">{t.categories.legal.links.cookies}</Link>
+                <Link href="/legal/cookies">{t.categories.legal.links.cookies}</Link>
               </li>
               <li>
-                <Link href="/privacy">{t.categories.legal.links.privacy}</Link>
+                <Link href="/legal/privacy">{t.categories.legal.links.privacy}</Link>
               </li>
               <li>
-                <Link href="/terms">{t.categories.legal.links.terms}</Link>
+                <Link href="/legal/terms">{t.categories.legal.links.terms}</Link>
               </li>
             </ul>
           </div>
