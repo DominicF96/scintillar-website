@@ -1,13 +1,16 @@
 import React from "react";
-import { Locale } from "@/i18n.config";
+import { defaultLocale, Locale } from "@/i18n.config";
 import StandardLayout from "@/components/standard.layout";
+import { cookies } from "next/headers";
 
 type Props = {
   children: React.ReactNode;
-  locale: Locale;
 };
 
-function Layout({ children, locale }: Props) {
+async function Layout({ children }: Props) {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("NEXT_LOCALE")?.value ||
+    defaultLocale) as Locale;
   return <StandardLayout locale={locale}>{children}</StandardLayout>;
 }
 
