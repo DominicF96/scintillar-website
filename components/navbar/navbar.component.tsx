@@ -18,7 +18,7 @@ function Navbar({ locale }: Props) {
       <div className="nav-content px-8 flex justify-between items-center">
         <Logo variant="horizontal" />
         <div className="flex gap-2">
-          <Button>{t.navbar.login}</Button>
+          <Button className="hidden md:block">{t.navbar.login}</Button>
           <ThemeToggle locale={locale} />
         </div>
       </div>
