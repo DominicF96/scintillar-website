@@ -19,7 +19,7 @@ type Props = {
   className?: string;
 };
 
-export function ThemeToggle({ locale, className }: Props) {
+export function ThemeToggle({ locale }: Props) {
   const t = i18n[locale];
   const { setTheme } = useTheme();
 
