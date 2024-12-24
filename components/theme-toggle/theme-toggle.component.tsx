@@ -11,8 +11,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Locale } from "@/i18n.config";
+import * as i18n from "@/i18n/components/theme-toggle.i18n";
 
-export function ThemeToggle() {
+type Props = {
+  locale: Locale;
+  className?: string;
+};
+
+export function ThemeToggle({ locale, className }: Props) {
+  const t = i18n[locale];
   const { setTheme } = useTheme();
 
   return (
@@ -21,18 +29,18 @@ export function ThemeToggle() {
         <Button variant="outline" size="icon">
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{t.theme_toggle.toggle}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          {t.theme_toggle.light}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {t.theme_toggle.dark}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {t.theme_toggle.system}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
