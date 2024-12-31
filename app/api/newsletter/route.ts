@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import * as mailchimp from "@mailchimp/mailchimp_marketing";
-const md5 = require("md5");
+import * as md5 from "md5";
 
 const MAILCHIMP_SERVER = process.env.MAILCHIMP_SERVER || "";
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
