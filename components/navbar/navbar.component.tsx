@@ -5,6 +5,7 @@ import { ThemeToggle } from "../theme-toggle/theme-toggle.component";
 import { Button } from "../ui/button";
 import * as i18n from "@/i18n/components/navbar.i18n";
 import "./navbar.component.scss";
+import Link from "next/link";
 
 type Props = {
   locale: Locale;
@@ -16,9 +17,13 @@ function Navbar({ locale }: Props) {
   return (
     <nav>
       <div className="nav-content px-8 flex justify-between items-center">
-        <Logo variant="horizontal" />
+        <Link href="/">
+          <Logo variant="horizontal" className="select-none" />
+        </Link>
         <div className="flex gap-2">
-          <Button className="hidden md:block">{t.navbar.login}</Button>
+          <Link href="/app">
+            <Button className="hidden md:block">{t.navbar.login}</Button>
+          </Link>
           <ThemeToggle locale={locale} />
         </div>
       </div>

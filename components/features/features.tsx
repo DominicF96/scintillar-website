@@ -19,6 +19,7 @@ import {
   Newspaper,
   ShieldAlert,
 } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   locale: Locale;
@@ -37,7 +38,7 @@ function Features({ locale }: Props) {
   };
 
   return (
-    <section className="feature-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-8 py-32 text-left md:text-center overflow-x-hidden">
+    <section id="features-section" className="feature-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-8 py-32 text-left md:text-center overflow-x-hidden">
       <span className="feature-flavor font-medium">{t.features.flavor}</span>
       <h2 className="max-w-[400px]">{t.features.title}</h2>
       <div className="feature-cards-container grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 lg:grid-cols-3">
@@ -60,7 +61,9 @@ function Features({ locale }: Props) {
           </Card>
         ))}
       </div>
-      <Button className="mt-8">{t.features.actions.primary}</Button>
+      <Link href="/features">
+        <Button className="mt-8">{t.features.actions.primary}</Button>
+      </Link>
     </section>
   );
 }

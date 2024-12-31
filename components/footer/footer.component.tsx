@@ -23,14 +23,14 @@ function Footer({ locale }: Props) {
       <Image
         src={`/vectors/footer-arc-${resolvedTheme}.svg`}
         alt=""
-        className="absolute -left-[1px] -scale-x-100 mt-[-191px]"
+        className="absolute -left-[1px] -scale-x-100 mt-[-191px] select-none"
         width={96}
         height={96}
       />
       <Image
         src={`/vectors/footer-arc-${resolvedTheme}.svg`}
         alt=""
-        className="absolute -right-[1px] mt-[-191px]"
+        className="absolute -right-[1px] mt-[-191px] select-none"
         width={96}
         height={96}
       />
@@ -223,23 +223,31 @@ function Footer({ locale }: Props) {
             <h3 className="font-bold">{t.categories.legal.title}</h3>
             <ul>
               <li>
-                <Link href="/legal/cookies">{t.categories.legal.links.cookies}</Link>
+                <Link href="/legal/cookies">
+                  {t.categories.legal.links.cookies}
+                </Link>
               </li>
               <li>
-                <Link href="/legal/privacy">{t.categories.legal.links.privacy}</Link>
+                <Link href="/legal/privacy">
+                  {t.categories.legal.links.privacy}
+                </Link>
               </li>
               <li>
-                <Link href="/legal/terms">{t.categories.legal.links.terms}</Link>
+                <Link href="/legal/terms">
+                  {t.categories.legal.links.terms}
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-end flex flex-col items-start md:flex-row md:justify-between">
-          <Logo
-            color="inverted-flat"
-            variant="horizontal"
-            className="mb-4 md:mb-0"
-          />
+          <Link href="/">
+            <Logo
+              color="inverted-flat"
+              variant="horizontal"
+              className="mb-4 md:mb-0 select-none"
+            />
+          </Link>
           <div className="text-muted">
             &copy; {new Date().getFullYear()} Scintillar,&nbsp;
             {t.all_rights_reserved}

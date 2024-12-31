@@ -2,6 +2,7 @@ import React from "react";
 import { Locale } from "@/i18n.config";
 import * as i18n from "@/i18n/components/hero.i18n";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 type Props = {
   locale: Locale;
@@ -17,8 +18,12 @@ function Hero({ locale }: Props) {
         {t.description}
       </p>
       <div className="flex flex-col mt-8 gap-4 justify-center md:flex-row">
-        <Button>{t.actions.primary}</Button>
-        <Button variant="ghost">{t.actions.secondary}</Button>
+        <Link href="/app">
+          <Button>{t.actions.primary}</Button>
+        </Link>
+        <Link href="#features-section">
+          <Button variant="ghost">{t.actions.secondary}</Button>
+        </Link>
       </div>
     </header>
   );

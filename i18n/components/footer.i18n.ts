@@ -69,7 +69,7 @@ export const en: I18n = {
     explore: {
       title: "Explore",
       links: {
-        features: "Core Features",
+        features: "Features",
         success_stories: "Success Stories",
         modules_marketplace: "Modules Marketplace",
         pricing: "Pricing",
@@ -114,7 +114,7 @@ export const fr: I18n = {
     explore: {
       title: "Explorer",
       links: {
-        features: "Fonctionnalités principales",
+        features: "Fonctionnalités",
         success_stories: "Études de cas",
         modules_marketplace: "Marché des modules",
         pricing: "Tarification",

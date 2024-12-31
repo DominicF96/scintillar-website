@@ -43,7 +43,7 @@ export interface I18n {
 export const en: I18n = {
   features: {
     flavor: "Features",
-    title: "System Breakdown.",
+    title: "System Breakdown",
     items: {
       proceduralCities: {
         title: "Procedural Abstract Cities Generation",
@@ -91,7 +91,7 @@ export const en: I18n = {
 export const fr: I18n = {
   features: {
     flavor: "Fonctionnalités",
-    title: "Spécifications du système.",
+    title: "Spécifications du système",
     items: {
       proceduralCities: {
         title: "Génération Procédurale de Villes Abstraites",

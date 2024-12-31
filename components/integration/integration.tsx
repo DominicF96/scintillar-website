@@ -80,7 +80,7 @@ function Integration({ locale }: Props) {
           {t.integration.checklist.map((item, index) => (
             <li
               key={`checlist_item_${index}`}
-              className="flex items-center gap-4 mb-4"
+              className="flex items-start gap-4 mb-4"
             >
               <div className="w-[24px]">
                 <Check className="inline text-primary" />

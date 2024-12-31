@@ -18,14 +18,14 @@ function StandardLayout({ locale, children }: Props) {
       <Image
         src={`/vectors/footer-arc-${resolvedTheme}.svg`}
         alt=""
-        className="absolute top-0 left-0 z-50 -scale-100"
+        className="absolute top-0 left-0 z-50 -scale-100 pointer-events-none select-none"
         width={96}
         height={96}
       />
       <Image
         src={`/vectors/footer-arc-${resolvedTheme}.svg`}
         alt=""
-        className="absolute top-0 right-0 z-50 -scale-y-100"
+        className="absolute top-0 right-0 z-50 -scale-y-100 pointer-events-none select-none"
         width={96}
         height={96}
       />
