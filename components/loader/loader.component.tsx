@@ -8,7 +8,7 @@ function Loader({ isLoaded }: { isLoaded: boolean }) {
   const { resolvedTheme } = useTheme();
 
   return (
-    <div className={`spinner-container ${isLoaded ? "fade-out" : ""}`}>
+    <div className={`spinner-container ${isLoaded ? "fade-out" : ""}`} suppressHydrationWarning>
       {resolvedTheme && (
         <Image
           src={`/vectors/loader-${resolvedTheme}.svg`}

@@ -34,13 +34,15 @@ function Integration({ locale }: Props) {
         <div className="flex justify-start md:justify-center gap-8 mb-8">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Image
-                src={`/vectors/engines/godot-${resolvedTheme}.svg`}
-                alt="Godot logo"
-                className="opacity-40"
-                width={64}
-                height={64}
-              />
+              {resolvedTheme && (
+                <Image
+                  src={`/vectors/engines/godot-${resolvedTheme}.svg`}
+                  alt="Godot logo"
+                  className="opacity-40"
+                  width={64}
+                  height={64}
+                />
+              )}
             </TooltipTrigger>
             <TooltipContent>
               Godot Engine ({t.integration.engine_soon})
@@ -48,13 +50,15 @@ function Integration({ locale }: Props) {
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Image
-                src={`/vectors/engines/unity-${resolvedTheme}.svg`}
-                alt="Unity logo"
-                className="opacity-40"
-                width={64}
-                height={64}
-              />
+              {resolvedTheme && (
+                <Image
+                  src={`/vectors/engines/unity-${resolvedTheme}.svg`}
+                  alt="Unity logo"
+                  className="opacity-40"
+                  width={64}
+                  height={64}
+                />
+              )}
             </TooltipTrigger>
             <TooltipContent>
               Unity Engine ({t.integration.engine_soon})
@@ -62,13 +66,15 @@ function Integration({ locale }: Props) {
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Image
-                src={`/vectors/engines/unreal-${resolvedTheme}.svg`}
-                alt="Unreal logo"
-                className="opacity-40"
-                width={64}
-                height={64}
-              />
+              {resolvedTheme && (
+                <Image
+                  src={`/vectors/engines/unreal-${resolvedTheme}.svg`}
+                  alt="Unreal logo"
+                  className="opacity-40"
+                  width={64}
+                  height={64}
+                />
+              )}
             </TooltipTrigger>
             <TooltipContent>
               Unreal Engine ({t.integration.engine_soon})

@@ -1,14 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Locale } from "@/i18n.config";
 import * as i18n from "@/i18n/components/footer.i18n";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Logo from "../logo.component";
-import "./footer.component.scss";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { validateEmail } from "@/utils/form_validation/email";
+import { CircleX, PartyPopperIcon } from "lucide-react";
+import "./footer.component.scss";
 
 type Props = {
   locale: Locale;
@@ -18,35 +20,101 @@ function Footer({ locale }: Props) {
   const t = i18n[locale];
   const { resolvedTheme } = useTheme();
 
+  const [email, setEmail] = useState<string>("");
+  const [isEmailDirty, setIsEmailDirty] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+  const [emailResponse, setEmailResponse] = useState<boolean | undefined>(
+    undefined
+  );
+
+  const handleEmailChange = (email: string) => {
+    setEmail(email);
+    setIsEmailDirty(true);
+    setEmailResponse(undefined);
+    setIsEmailValid(validateEmail(email));
+  };
+
+  const subscribe = async (email: string) => {
+    setEmailResponse(undefined);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.status === 200) {
+        setEmailResponse(true);
+      } else {
+        throw new Error("Unable to subscribe to newsletter");
+      }
+    } catch (err) {
+      console.error(err);
+      setEmailResponse(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-primary text-background pt-24 pb-16 overflow-x-hidden">
-      <Image
-        src={`/vectors/footer-arc-${resolvedTheme}.svg`}
-        alt=""
-        className="absolute -left-[1px] -scale-x-100 mt-[-191px] select-none"
-        width={96}
-        height={96}
-      />
-      <Image
-        src={`/vectors/footer-arc-${resolvedTheme}.svg`}
-        alt=""
-        className="absolute -right-[1px] mt-[-191px] select-none"
-        width={96}
-        height={96}
-      />
+      {resolvedTheme && (
+        <>
+          <Image
+            src={`/vectors/footer-arc-${resolvedTheme}.svg`}
+            alt=""
+            className="absolute -left-[1px] -scale-x-100 mt-[-191px] select-none"
+            width={96}
+            height={96}
+          />
+          <Image
+            src={`/vectors/footer-arc-${resolvedTheme}.svg`}
+            alt=""
+            className="absolute -right-[1px] mt-[-191px] select-none"
+            width={96}
+            height={96}
+          />
+        </>
+      )}
       <div className="mx-auto max-w-[1000px] px-4">
         <div className="flex flex-col items-start w-full mb-6 md:flex-row md:justify-between">
-          <div className="flex flex-col max-w-[530px] mb-6">
+          <div className="flex flex-col max-w-[530px] mb-2">
             <h2 className="mb-4">{t.newsletter.title}</h2>
             <p className="mb-8">{t.newsletter.description}</p>
             <div className="newsletter-actions-container">
               <Input
                 placeholder={t.newsletter.placeholder}
                 className="mr-2 newsletter-input"
+                onChange={(e) => handleEmailChange(e.target.value)}
               />
-              <Button className="newsletter-button">
+              <Button
+                className="newsletter-button"
+                onClick={() => subscribe(email)}
+                disabled={!isEmailValid || isLoading}
+              >
                 {t.newsletter.submit}
               </Button>
+            </div>
+            <div className="mt-2 h-[20px]">
+              {isEmailDirty && !isEmailValid && (
+                <p className="flex items-center text-sm">
+                  <CircleX className="inline mr-1" height={18} />
+                  {t.newsletter.invalid_email}
+                </p>
+              )}
+              {emailResponse === false && (
+                <p className="flex items-center text-sm">
+                  <CircleX className="inline mr-1" height={18} />
+                  {t.newsletter.error_subscribing}
+                </p>
+              )}
+              {emailResponse === true && (
+                <p className="flex items-center text-sm">
+                  <PartyPopperIcon className="inline mr-1" height={18} />
+                  {t.newsletter.success_subscribing}
+                </p>
+              )}
             </div>
           </div>
           <ul className="flex flex-row gap-2 mb-6">
@@ -202,7 +270,7 @@ function Footer({ locale }: Props) {
                   {t.categories.explore.links.features}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/success-stories">
                   {t.categories.explore.links.success_stories}
                 </Link>
@@ -211,7 +279,7 @@ function Footer({ locale }: Props) {
                 <Link href="/marketplace">
                   {t.categories.explore.links.modules_marketplace}
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/pricing">
                   {t.categories.explore.links.pricing}

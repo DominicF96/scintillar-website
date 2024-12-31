@@ -1,12 +1,12 @@
 footer {
   padding: 64px 0;
 
-  ::-moz-selection {
+  :not(input)::-moz-selection {
     background-color: hsl(var(--primary-foreground));
     color: hsl(var(--primary));
   }
 
-  ::selection {
+  :not(input)::selection {
     background-color: hsl(var(--primary-foreground));
     color: hsl(var(--primary));
   }

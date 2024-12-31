@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import * as i18n from "@/i18n/legal/index.i18n";
 
-function LegalIndexPage({ params }) {
-  const { locale } = params;
+async function LegalIndexPage({ params }) {
+  const { locale } = await params;
   const content = i18n[locale];
 
   return (

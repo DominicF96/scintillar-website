@@ -4,7 +4,8 @@ import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Scintillar - Next.js Starter",
-  description: "Powered by Next.js, TypeScript, and Tailwind CSS. Get your platform live and scale like never before.",
+  description:
+    "Powered by Next.js, TypeScript, and Tailwind CSS. Get your platform live and scale like never before.",
 };
 
 export default function RootLayout({

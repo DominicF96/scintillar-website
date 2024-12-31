@@ -12,8 +12,8 @@ import {
 import Link from "next/link";
 import { CaretLeftIcon } from "@radix-ui/react-icons";
 
-function Page({ params }) {
-  const { locale } = params;
+async function Page({ params }) {
+  const { locale } = await params;
   const content = i18n[locale];
   const indexContent = indexI18n[locale];
 
@@ -38,7 +38,8 @@ function Page({ params }) {
               day: "numeric",
               hour: "numeric",
               minute: "numeric",
-            })}.
+            })}
+            .
           </CardDescription>
         </CardHeader>
         <CardContent className="legal-policy-content">

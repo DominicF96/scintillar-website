@@ -4,7 +4,7 @@ import Hero from "@/components/hero/hero.component";
 import Integration from "@/components/integration/integration";
 
 export default async function Home({ params }) {
-  const locale = await params.locale;
+  const { locale } = await params;
 
   return (
     <>

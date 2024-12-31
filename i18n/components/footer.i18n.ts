@@ -4,6 +4,9 @@ export interface I18n {
     description: string;
     placeholder: string;
     submit: string;
+    invalid_email: string;
+    error_subscribing: string;
+    success_subscribing: string;
   };
   socials: {
     bluesky: string;
@@ -49,6 +52,9 @@ export const en: I18n = {
       "Stay up-to-date with the latest development of Scintillar, subscribe to our newsletter!",
     placeholder: "john@acme.inc",
     submit: "Subscribe",
+    invalid_email: "Please enter a valid email address.",
+    error_subscribing: "There was an error subscribing. Please try again.",
+    success_subscribing: "Successfully subscribed to the newsletter!",
   },
   socials: {
     bluesky: "Bluesky",
@@ -94,6 +100,9 @@ export const fr: I18n = {
       "Restez informé des derniers développements de Scintillar, abonnez-vous à notre newsletter !",
     placeholder: "john@acme.inc",
     submit: "S'abonner",
+    invalid_email: "Veuillez entrer une adresse e-mail valide.",
+    error_subscribing: "Une erreur s'est produite lors de l'abonnement. Veuillez réessayer.",
+    success_subscribing: "Abonnement à la newsletter réussi !",
   },
   socials: {
     bluesky: "Bluesky",
