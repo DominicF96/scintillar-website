@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/shared/theme-toggle/theme-toggle.component";
 import Logo from "@/components/shared/logo.component";
 import * as i18n from "@/i18n/components/web/navbar.i18n";
 import { Locale } from "@/i18n.config";

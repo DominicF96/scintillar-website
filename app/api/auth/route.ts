@@ -1,7 +1,7 @@
-import { getSession } from "@auth0/nextjs-auth0/edge";
+import { getSession, Session } from "@auth0/nextjs-auth0/edge";
 import { redirect } from "next/navigation";
 
-export async function authRequired() {
+export async function authRequired(): Promise<Session> {
   try {
     const session = await getSession();
     if (!session) throw new Error("No session");
