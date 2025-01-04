@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 import { useTheme } from "next-themes";
-import Loader from "../components/loader/loader.component";
+import Loader from "@/components/shared/loader/loader.component";
 
 const LoadingContext = createContext<boolean>(true);
 

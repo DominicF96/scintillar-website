@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme.provider";
+import { ThemeProvider } from "@/components/shared/theme.provider";
 import LoadingProvider from "./loading.context";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { GoogleAnalytics } from "@next/third-parties/google";
