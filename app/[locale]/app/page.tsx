@@ -1,6 +1,6 @@
 import React from "react";
 // import { Locale } from "@/i18n.config";
-import { getUser } from "@/app/api/auth/route";
+import { getUser } from "@/app/api/auth/auth";
 
 // type Props = {
 //   params: {

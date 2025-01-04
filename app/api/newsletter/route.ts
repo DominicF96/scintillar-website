@@ -8,8 +8,7 @@ const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 
 if (!MAILCHIMP_API_KEY) throw new Error("[MAILCHIMP_API_KEY] is required");
 if (!MAILCHIMP_SERVER) throw new Error("[MAILCHIMP_SERVER] is required");
-if (!MAILCHIMP_AUDIENCE_ID)
-  throw new Error("[MAILCHIMP_MARKETING_AUDIENCE_ID] is required");
+if (!MAILCHIMP_AUDIENCE_ID) throw new Error("[MAILCHIMP_MARKETING_AUDIENCE_ID] is required");
 
 mailchimp.setConfig({
   apiKey: MAILCHIMP_API_KEY,
@@ -64,6 +63,6 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (e: any) {
-    return NextResponse.json({ code: 400, message: e }, { status: 400 });
+    return NextResponse.json({ error: e.message }, { status: 400 });
   }
 }

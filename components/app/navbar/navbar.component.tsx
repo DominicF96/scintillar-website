@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "@/components/shared/logo.component";
-import * as i18n from "@/i18n/components/web/navbar.i18n";
+// import * as i18n from "@/i18n/components/web/navbar.i18n";
 import { Locale } from "@/i18n.config";
 import UserMenu from "@/components/app/user-menu/user-menu.component";
 import "./navbar.component.scss";
@@ -11,7 +11,7 @@ type Props = {
 };
 
 function Navbar({ locale }: Props) {
-  const t = i18n[locale];
+  // const t = i18n[locale];
 
   return (
     <nav>
