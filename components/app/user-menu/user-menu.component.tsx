@@ -33,7 +33,8 @@ function UserMenu({ locale }: Props) {
 
   const changeLanguage = (lang: Locale) => {
     Cookies.set("NEXT_LOCALE", lang);
-    window.location.reload();
+    // Hack; Force reload and keep location.
+    window.location.href = window.location.href;
   };
 
   function getInitials(name: string) {

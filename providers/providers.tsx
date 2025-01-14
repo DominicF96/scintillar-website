@@ -29,7 +29,7 @@ export function Providers({ children }) {
       enableSystem
       disableTransitionOnChange
     >
-      <TooltipProvider>
+      <TooltipProvider delayDuration={300}>
         {useGA && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
         <LoadingProvider>{children}</LoadingProvider>
       </TooltipProvider>

@@ -4,7 +4,11 @@ import * as i18n from "@/i18n/web/components/integration.i18n";
 import { Locale } from "@/i18n.config";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useTheme } from "next-themes";
 import "./integration.scss";
 
@@ -44,7 +48,7 @@ function Integration({ locale }: Props) {
                 />
               )}
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent sideOffset={8}>
               Godot Engine ({t.integration.engine_soon})
             </TooltipContent>
           </Tooltip>
@@ -60,7 +64,7 @@ function Integration({ locale }: Props) {
                 />
               )}
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent sideOffset={8}>
               Unity Engine ({t.integration.engine_soon})
             </TooltipContent>
           </Tooltip>
@@ -76,7 +80,7 @@ function Integration({ locale }: Props) {
                 />
               )}
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent sideOffset={8}>
               Unreal Engine ({t.integration.engine_soon})
             </TooltipContent>
           </Tooltip>

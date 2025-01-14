@@ -128,7 +128,7 @@ function Footer({ locale }: Props) {
               )}
             </div>
           </div>
-          <Socials locale={locale} />
+          <Socials locale={locale} invertedTheme={true} />
         </div>
         <div className="flex flex-col md:flex-row justify-start w-full max-w-6xl gap-4 md:gap-32 mt-12 mb-16">
           <div className="flex flex-col mb-6 md:mb-0">
