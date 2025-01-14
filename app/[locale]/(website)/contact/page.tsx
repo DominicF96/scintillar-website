@@ -3,6 +3,7 @@ import * as i18n from "@/i18n/web/pages/contact/contact.page.i18n";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/web/forms/contact.form";
 import ScrollTop from "@/components/shared/utils/scroll-top.component";
+import Socials from "@/components/shared/socials/socials.component";
 
 async function ContactPage({ params }) {
   const { locale } = await params;
@@ -19,6 +20,13 @@ async function ContactPage({ params }) {
             <ContactForm locale={locale} />
           </CardContent>
         </Card>
+        <div>
+          <Card>
+            <CardContent className="py-8">
+              <Socials locale={locale} />
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
