@@ -11,13 +11,14 @@ export default function middleware(req: NextRequest) {
   // Check if there is any supported locale in the pathname
   const locale = getLocale(req);
   const pathnameLocale = getPathnameLocale(pathname);
+  const cookieLocale = req.cookies.get("NEXT_LOCALE")?.value;
 
-  // Redirect if there is no locale
-  if (!pathnameLocale) {
-    const response = NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, req.url)
-    );
-    response.cookies.set("NEXT_LOCALE", locale);
+  // Redirect if there is no locale in the pathname or if the cookie locale differs from the pathname locale
+  if (!pathnameLocale || (cookieLocale && cookieLocale !== pathnameLocale)) {
+    const newLocale = cookieLocale || locale;
+    const newPathname = pathnameLocale ? pathname.replace(`/${pathnameLocale}`, `/${newLocale}`) : `/${newLocale}${pathname}`;
+    const response = NextResponse.redirect(new URL(newPathname, req.url));
+    response.cookies.set("NEXT_LOCALE", newLocale);
     return response;
   } else {
     // Set locale in cookies

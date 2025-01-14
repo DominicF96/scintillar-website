@@ -1,6 +1,6 @@
 import React from "react";
 import { Locale } from "@/i18n.config";
-import * as i18n from "@/i18n/components/web/hero.i18n";
+import * as i18n from "@/i18n/web/components/hero.i18n";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ function Hero({ locale }: Props) {
   const t = i18n[locale];
 
   return (
-    <header className="mx-auto max-w-[1000px] px-4 pt-40 pb-20 text-left md:text-center overflow-x-hidden">
+    <header className="mx-auto max-w-[1000px] px-8 pt-40 pb-20 text-left md:text-center overflow-x-hidden">
       <h1>{t.title}</h1>
       <p className="mx-auto max-w-[750px] text-xl text-muted-foreground mt-8 font-thin">
         {t.description}

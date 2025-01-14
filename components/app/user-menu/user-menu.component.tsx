@@ -16,9 +16,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import * as i18n from "@/i18n/components/app/user-menu.i18n";
+import * as i18n from "@/i18n/app/components/user-menu.i18n";
 import { Locale } from "@/i18n.config";
 import { useTheme } from "next-themes";
+import Cookies from "js-cookie";
+import { MonitorIcon, MoonIcon, SunIcon, UserCogIcon } from "lucide-react";
 
 type Props = {
   locale: Locale;
@@ -28,6 +30,11 @@ function UserMenu({ locale }: Props) {
   const t = i18n[locale];
   const { user } = useUser();
   const { setTheme } = useTheme();
+
+  const changeLanguage = (lang: Locale) => {
+    Cookies.set("NEXT_LOCALE", lang);
+    window.location.reload();
+  };
 
   function getInitials(name: string) {
     const [firstName, lastName] = name.split(" ");
@@ -52,7 +59,7 @@ function UserMenu({ locale }: Props) {
           <AvatarFallback>{getInitials(user.name || "")}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
@@ -64,6 +71,11 @@ function UserMenu({ locale }: Props) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <UserCogIcon />
+          <Link href="/app/preferences">{t.preferences}</Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
@@ -72,13 +84,32 @@ function UserMenu({ locale }: Props) {
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <DropdownMenuItem onClick={() => setTheme("light")}>
-                  {t.theme_toggle.light}
+                  <SunIcon /> {t.theme_toggle.light}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  <MoonIcon />
                   {t.theme_toggle.dark}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")}>
+                  <MonitorIcon />
                   {t.theme_toggle.system}
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              {t.language_toggle.toggle}
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem onClick={() => changeLanguage("en")}>
+                  <code>EN</code>
+                  {t.language_toggle.english}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage("fr")}>
+                  <code>FR</code>
+                  {t.language_toggle.french}
                 </DropdownMenuItem>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>

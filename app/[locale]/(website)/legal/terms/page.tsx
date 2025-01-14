@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollTop from "@/components/shared/utils/scroll-top.component";
-import * as indexI18n from "@/i18n/legal/index.i18n";
-import * as i18n from "@/i18n/legal/terms-and-conditions.i18n";
+import * as indexI18n from "@/i18n/shared/pages/legal/index.i18n";
+import * as i18n from "@/i18n/shared/pages/legal/terms-and-conditions.i18n";
 import {
   Card,
   CardContent,

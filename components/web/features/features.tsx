@@ -9,7 +9,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { Locale } from "@/i18n.config";
-import * as i18n from "@/i18n/components/web/features.i18n";
+import * as i18n from "@/i18n/web/components/features.i18n";
 import {
   Card,
   CardContent,
@@ -40,7 +40,7 @@ function Features({ locale }: Props) {
   return (
     <section
       id="features-section"
-      className="feature-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-4 py-32 text-left md:text-center overflow-x-hidden"
+      className="feature-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-8 py-32 text-left md:text-center overflow-x-hidden"
     >
       <span className="feature-flavor font-medium">{t.features.flavor}</span>
       <h2 className="max-w-[400px]">{t.features.title}</h2>

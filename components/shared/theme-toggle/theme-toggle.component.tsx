@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Locale } from "@/i18n.config";
-import * as i18n from "@/i18n/components/shared/theme-toggle.i18n";
+import * as i18n from "@/i18n/shared/components/theme-toggle.i18n";
 
 type Props = {
   locale: Locale;

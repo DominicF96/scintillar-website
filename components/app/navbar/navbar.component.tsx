@@ -16,7 +16,7 @@ function Navbar({ locale }: Props) {
   return (
     <nav>
       <div className="nav-content px-8 flex justify-between items-center">
-        <Link href="/">
+        <Link href="/app">
           <Logo variant="horizontal" className="select-none" />
         </Link>
         <div className="flex gap-2">

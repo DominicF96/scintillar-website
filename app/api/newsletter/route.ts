@@ -8,7 +8,8 @@ const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 
 if (!MAILCHIMP_API_KEY) throw new Error("[MAILCHIMP_API_KEY] is required");
 if (!MAILCHIMP_SERVER) throw new Error("[MAILCHIMP_SERVER] is required");
-if (!MAILCHIMP_AUDIENCE_ID) throw new Error("[MAILCHIMP_MARKETING_AUDIENCE_ID] is required");
+if (!MAILCHIMP_AUDIENCE_ID)
+  throw new Error("[MAILCHIMP_MARKETING_AUDIENCE_ID] is required");
 
 mailchimp.setConfig({
   apiKey: MAILCHIMP_API_KEY,
@@ -16,14 +17,7 @@ mailchimp.setConfig({
 });
 
 export async function POST(req: Request) {
-  const {
-    email,
-    firstName,
-    lastName,
-    chains,
-    tags = [],
-    note,
-  } = await req.json();
+  const { email, firstName, lastName, tags = [], note } = await req.json();
   if (!email) {
     return NextResponse.json({ error: "invalid email" }, { status: 400 });
   }
@@ -33,11 +27,10 @@ export async function POST(req: Request) {
   const contact = {
     email_address: email,
     status: "subscribed",
-    tags: tags,
+    tags: ["org:scintillar", ...tags],
     merge_fields: {
       FNAME: firstName || "",
       LNAME: lastName || "",
-      CHAINS: tags.includes("Contact Form") ? chains || "" : undefined,
     },
   };
 

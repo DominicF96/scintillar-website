@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import * as i18n from "@/i18n/components/web/integration.i18n";
+import * as i18n from "@/i18n/web/components/integration.i18n";
 import { Locale } from "@/i18n.config";
 import { Check } from "lucide-react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ function Integration({ locale }: Props) {
   const { resolvedTheme } = useTheme();
 
   return (
-    <section className="integration-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-4 py-20 text-left grid gric-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
+    <section className="integration-section mx-auto max-w-[1000px] lg:max-w-[1200px] px-8 py-20 text-left grid gric-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
       <div>
         <span className="integration-flavor font-medium">
           {t.integration.flavor}

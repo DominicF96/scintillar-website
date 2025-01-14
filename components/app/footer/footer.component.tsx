@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { Locale } from "@/i18n.config";
-import * as i18n from "@/i18n/components/app/footer.i18n";
+import * as i18n from "@/i18n/app/components/footer.i18n";
 import "./footer.component.scss";
 
 type Props = {
@@ -15,7 +15,7 @@ function Footer({ locale }: Props) {
   return (
     <footer className="app-footer py-8 overflow-x-hidden">
       <div className="mx-auto max-w-[1200px]">
-        <div className="footer-end px-4 flex flex-col items-start md:flex-row md:justify-between">
+        <div className="footer-end px-8 flex flex-col items-start md:flex-row md:justify-between">
           <ul className="flex flex-row gap-2 mb-6">
             {/* <li>
               <Link

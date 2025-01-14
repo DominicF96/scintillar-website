@@ -1,7 +1,7 @@
 import React from "react";
-import * as i18n from "@/i18n/app/pages/dashboard.i18n";
+import * as i18n from "@/i18n/app/pages/preferences.i18n";
 
-async function Page({ params }) {
+async function PreferencesPage({ params }) {
   const { locale } = await params;
   const t = i18n[locale];
   return (
@@ -15,4 +15,4 @@ async function Page({ params }) {
   );
 }
 
-export default Page;
+export default PreferencesPage;

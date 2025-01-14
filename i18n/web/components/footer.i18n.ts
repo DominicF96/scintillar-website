@@ -50,7 +50,7 @@ export const en: I18n = {
     title: "Newsletter",
     description:
       "Stay up-to-date with the latest development of Scintillar, subscribe to our newsletter!",
-    placeholder: "john@acme.inc",
+    placeholder: "john.smith@acme.inc",
     submit: "Subscribe",
     invalid_email: "Please enter a valid email address.",
     error_subscribing: "There was an error subscribing. Please try again.",
@@ -98,10 +98,11 @@ export const fr: I18n = {
     title: "Bulletin d'information",
     description:
       "Restez informé des derniers développements de Scintillar, abonnez-vous à notre newsletter !",
-    placeholder: "john@acme.inc",
+    placeholder: "john.smith@acme.inc",
     submit: "S'abonner",
     invalid_email: "Veuillez entrer une adresse e-mail valide.",
-    error_subscribing: "Une erreur s'est produite lors de l'abonnement. Veuillez réessayer.",
+    error_subscribing:
+      "Une erreur s'est produite lors de l'abonnement. Veuillez réessayer.",
     success_subscribing: "Abonnement à la newsletter réussi !",
   },
   socials: {

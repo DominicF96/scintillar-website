@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import * as i18n from "@/i18n/legal/index.i18n";
+import * as i18n from "@/i18n/shared/pages/legal/index.i18n";
 
 async function LegalIndexPage({ params }) {
   const { locale } = await params;
