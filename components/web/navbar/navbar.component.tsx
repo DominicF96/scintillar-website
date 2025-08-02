@@ -15,7 +15,7 @@ function Navbar({ locale }: Props) {
   const t = i18n[locale];
 
   return (
-    <nav>
+    <nav className="web-navbar">
       <div className="nav-content px-8 flex justify-between items-center">
         <Link href="/">
           <Logo variant="horizontal" className="select-none" />

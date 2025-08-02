@@ -9,6 +9,7 @@ import { Locale } from "@/i18n.config";
 import UserMenu from "@/components/app/user-menu/user-menu.component";
 import { useSidebar } from "@/contexts/sidebar.context";
 import Notifications from "../notifications/notifications.component";
+import BreadcrumbComponent from "../breadcrumb/breadcrumb.component";
 import "./navbar.component.scss";
 
 type Props = {
@@ -21,20 +22,24 @@ function Navbar({ locale }: Props) {
 
   return (
     <nav className="bg-card border-b">
-      <div className="nav-content py-4 pl-[0.9rem] pr-8 flex justify-between items-center">
+      <div className="nav-content py-2 md:py-4 pl-2 md:pl-[0.5rem] pr-4 md:pr-8 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <Button
             onClick={toggleSidebar}
             size="icon"
             variant="ghost"
-            className="h-9 w-9"
+            className="w-12 h-12"
             aria-label="Toggle sidebar"
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <Link href="/app">
-            <Logo variant="horizontal" className="select-none" />
+         <div className="flex items-center gap-2">
+           <Link href="/app">
+            <Logo variant="standalone" className="select-none" />
           </Link>
+          <span className="text-muted-foreground">/</span>
+          <BreadcrumbComponent locale={locale} />
+         </div>
         </div>
         <div className="flex items-center gap-2">
           <Notifications locale={locale} />

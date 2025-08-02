@@ -8,8 +8,10 @@ async function MarketPage({ params }) {
   
   return (
     <ContentContainer className="py-4 px-8" locale={locale}>
-      <h2>{t.title}</h2>
-      <p className="text-muted-foreground">{t.description}</p>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold mb-2">{t.title}</h2>
+        <p className="text-muted-foreground">{t.description}</p>
+      </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4 border rounded-lg">
           <h3 className="font-semibold mb-2">{t.sections.featured.title}</h3>

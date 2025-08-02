@@ -21,8 +21,7 @@ export default function ContentContainer({
 }: ContentContainerProps) {
   return (
     <div className={cn(
-      "relative overflow-hidden",
-      fullHeight ? "h-full" : "",
+      "relative h-full flex flex-col",
       className
     )}>
       {/* Actions positioned at top-right - always reserve space */}
@@ -30,8 +29,9 @@ export default function ContentContainer({
         {actions}
       </div>
       
-      {/* Main content */}
+      {/* Main content - scrollable */}
       <div className={cn(
+        "flex-1 overflow-y-auto",
         fullHeight ? "h-full" : "",
         "relative"
       )}>

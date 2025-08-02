@@ -44,7 +44,7 @@ function Footer({ locale }: Props) {
   };
 
   return (
-    <footer className="app-footer overflow-x-hidden bg-card border-t hidden md:block">
+    <footer className="app-footer overflow-x-hidden bg-card border-t hidden lg:block">
       <div className="footer-end py-3 px-6 pl-2 flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">
         {/* Left side - Logo, Copyright, Links */}
         <div className="flex flex-col gap-0 lg:flex-row lg:items-center">

@@ -4,7 +4,6 @@ import { Locale } from "@/i18n.config";
 import Navbar from "./navbar/navbar.component";
 import Footer from "./footer/footer.component";
 import Sidebar from "./sidebar/sidebar.component";
-import SettingsPanel from "./settings-panel/settings-panel.component";
 
 type Props = {
   locale: Locale;
@@ -13,13 +12,13 @@ type Props = {
 
 function AppLayout({ locale, children }: Props) {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="h-screen flex flex-col relative">
       <div className="flex-shrink-0">
         <Navbar locale={locale} />
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 min-h-0 relative">
         <Sidebar locale={locale} />
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-hidden md:ml-0">
           {children}
         </main>
       </div>

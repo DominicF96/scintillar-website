@@ -2,52 +2,61 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/utils/shadcn";
 import { LucideIcon } from "lucide-react";
 
 interface NavButtonProps {
-  href: string;
+  href?: string;
   icon: LucideIcon;
   label: string;
-  isActive: boolean;
+  isActive?: boolean;
   isCollapsed: boolean;
+  onClick?: () => void;
 }
 
-export default function NavButton({ 
-  href, 
-  icon: Icon, 
-  label, 
-  isActive, 
-  isCollapsed 
+export default function NavButton({
+  href,
+  icon: Icon,
+  label,
+  isActive = false,
+  isCollapsed,
+  onClick,
 }: NavButtonProps) {
-  const linkContent = (
+  const buttonContent = (
     <Button
       variant={isActive ? "default" : "ghost"}
       className={cn(
-        "h-12 w-full transition-all duration-300",
-        isCollapsed 
-          ? "w-12 justify-center px-0" 
-          : "justify-start gap-3 px-3",
-          isActive ? "-mx-2 w-[calc(100%+16px)] px-[20px]" : ""
+        "h-8 w-full transition-all duration-300 overflow-hidden",
+        isCollapsed
+          ? "w-12 h-12 justify-center px-0"
+          : "justify-start gap-3 pr-2 pl-4",
       )}
-      asChild
+      onClick={onClick}
+      asChild={!!href}
     >
-      <Link href={href}>
-        <Icon className="h-5 w-5 flex-shrink-0" />
-        {!isCollapsed && (
-          <span className="truncate">{label}</span>
-        )}
-      </Link>
+      {href ? (
+        <Link href={href}>
+          <Icon className="h-5 w-5 flex-shrink-0" />
+          {!isCollapsed && <span className="truncate">{label}</span>}
+        </Link>
+      ) : (
+        <>
+          <Icon className="h-5 w-5 flex-shrink-0" />
+          {!isCollapsed && <span className="truncate">{label}</span>}
+        </>
+      )}
     </Button>
   );
 
   if (isCollapsed) {
     return (
       <Tooltip>
-        <TooltipTrigger asChild>
-          {linkContent}
-        </TooltipTrigger>
+        <TooltipTrigger asChild>{buttonContent}</TooltipTrigger>
         <TooltipContent side="right">
           <p>{label}</p>
         </TooltipContent>
@@ -55,5 +64,5 @@ export default function NavButton({
     );
   }
 
-  return linkContent;
+  return buttonContent;
 }
