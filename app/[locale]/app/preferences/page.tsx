@@ -1,13 +1,13 @@
 import React from "react";
 import * as i18n from "@/i18n/app/pages/preferences.i18n";
-import ContentContainer from "@/components/app/content-container/content-container.component";
+import ContentContainer from "@/components/layout/containers/content-container";
 
 async function PreferencesPage({ params }) {
   const { locale } = await params;
   const t = i18n[locale];
   
   return (
-    <ContentContainer className="py-4 px-8" locale={locale}>
+    <ContentContainer className="py-4 px-8">
       <h2>{t.title}</h2>
       <p className="text-muted-foreground">{t.description}</p>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">

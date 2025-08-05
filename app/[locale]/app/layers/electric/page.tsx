@@ -1,13 +1,13 @@
 import React from "react";
 import * as i18n from "@/i18n/app/pages/electric.i18n";
-import ContentContainer from "@/components/app/content-container/content-container.component";
+import ContentContainer from "@/components/layout/containers/content-container";
 
 async function ElectricLayerPage({ params }) {
   const { locale } = await params;
   const t = i18n[locale];
   
   return (
-    <ContentContainer className="py-4 px-8" locale={locale}>
+    <ContentContainer className="py-4 px-8">
       <div className="mb-6">
         <h2 className="text-2xl font-bold mb-2">{t.title}</h2>
         <p className="text-muted-foreground">{t.description}</p>

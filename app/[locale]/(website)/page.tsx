@@ -1,17 +1,17 @@
-import FAQ from "@/components/web/faq/faq";
-import Features from "@/components/web/features/features";
-import Hero from "@/components/web/hero/hero.component";
-import Integration from "@/components/web/integration/integration";
+import FAQ from "@/components/marketing/faq/faq";
+import Features from "@/components/marketing/features/features";
+import Hero from "@/components/marketing/hero/hero";
+import Integration from "@/components/marketing/integration/integration";
 
 export default async function Home({ params }) {
   const { locale } = await params;
 
   return (
     <>
-      <Hero locale={locale} />
-      <Features locale={locale} />
-      <Integration locale={locale} />
-      <FAQ locale={locale} />
+      <Hero />
+      <Features />
+      <Integration />
+      <FAQ />
     </>
   );
 }

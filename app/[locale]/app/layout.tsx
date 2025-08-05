@@ -1,11 +1,12 @@
 import React from "react";
 import { cookies } from "next/headers";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
-import ProtectedRoute from "@/components/app/protected-route.component";
-import { defaultLocale, Locale } from "@/i18n.config";
-import AppLayout from "@/components/app/app.layout";
-import { SidebarProvider } from "@/contexts/sidebar.context";
-import { SettingsPanelProvider } from "@/contexts/settings-panel.context";
+import ProtectedRoute from "@/components/features/auth/protected-route";
+import { defaultLocale, Locale } from "@/lib/config/i18n-config";
+import AppLayout from "@/components/layout/app-layout/app.layout";
+import { SidebarProvider } from "@/lib/providers/sidebar.context";
+import { SettingsPanelProvider } from "@/lib/providers/settings-panel.context";
+import { PrimarySidebarProvider } from "@/lib/providers/primary-sidebar.context";
+import { LocaleProvider } from "@/lib/providers/locale.context";
 
 type Props = {
   children: React.ReactNode;
@@ -16,15 +17,17 @@ async function Layout({ children }: Props) {
   const locale = (cookieStore.get("NEXT_LOCALE")?.value ||
     defaultLocale) as Locale;
   return (
-    <UserProvider>
-      <ProtectedRoute>
-        <SidebarProvider>
-          <SettingsPanelProvider>
-            <AppLayout locale={locale}>{children}</AppLayout>
-          </SettingsPanelProvider>
-        </SidebarProvider>
-      </ProtectedRoute>
-    </UserProvider>
+    <ProtectedRoute>
+      <LocaleProvider locale={locale}>
+        <PrimarySidebarProvider>
+          <SidebarProvider>
+            <SettingsPanelProvider>
+              <AppLayout>{children}</AppLayout>
+            </SettingsPanelProvider>
+          </SidebarProvider>
+        </PrimarySidebarProvider>
+      </LocaleProvider>
+    </ProtectedRoute>
   );
 }
 

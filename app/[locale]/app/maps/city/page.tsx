@@ -1,7 +1,7 @@
 import React from "react";
 import * as i18n from "@/i18n/app/pages/city.i18n";
-import ContentContainer from "@/components/app/content-container/content-container.component";
-import SettingsToggle from "@/components/app/settings-toggle/settings-toggle.component";
+import ContentContainer from "@/components/layout/containers/content-container";
+import SettingsToggle from "@/components/features/settings/settings-toggle";
 
 async function CityPage({ params }) {
   const { locale } = await params;

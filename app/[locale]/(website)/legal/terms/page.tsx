@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollTop from "@/components/shared/utils/scroll-top.component";
+import ScrollTop from "@/components/navigation/scroll-utils/scroll-top";
 import * as indexI18n from "@/i18n/shared/pages/legal/index.i18n";
 import * as i18n from "@/i18n/shared/pages/legal/terms-and-conditions.i18n";
 import {

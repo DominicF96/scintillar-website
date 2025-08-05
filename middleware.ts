@@ -1,7 +1,7 @@
 import acceptLanguage from "accept-language";
-import { locales } from "@/i18n.config";
+import { locales } from "@/lib/config/i18n-config";
 import { NextRequest, NextResponse } from "next/server";
-import { getLocale, getPathnameLocale } from "./middlewares/getLocale";
+import { getLocale, getPathnameLocale } from "./src/lib/middlewares/get-locale";
 
 acceptLanguage.languages(Array.from(locales));
 
@@ -21,9 +21,10 @@ export default function middleware(req: NextRequest) {
     response.cookies.set("NEXT_LOCALE", newLocale);
     return response;
   } else {
-    // Set locale in cookies
+    // Set locale in cookies and pass pathname as header
     const response = NextResponse.next();
     response.cookies.set("NEXT_LOCALE", pathnameLocale);
+    response.headers.set("x-pathname", pathname);
     return response;
   }
 }

@@ -1,13 +1,14 @@
+"use client";
 import React from "react";
 import * as i18n from "@/i18n/web/pages/contact/contact.page.i18n";
 import { Card, CardContent } from "@/components/ui/card";
-import ContactForm from "@/components/web/forms/contact.form";
-import ScrollTop from "@/components/shared/utils/scroll-top.component";
-import Socials from "@/components/shared/socials/socials.component";
+import ContactForm from "@/components/forms/contact-form";
+import ScrollTop from "@/components/navigation/scroll-utils/scroll-top";
+import Socials from "@/components/common/socials/socials.component";
+import { useTranslationDirect } from "@/lib/hooks/useTranslation";
 
-async function ContactPage({ params }) {
-  const { locale } = await params;
-  const t = i18n[locale];
+function ContactPage({ params }) {
+  const t = useTranslationDirect(i18n);
 
   return (
     <div className="max-w-[1200px] mx-auto px-8 py-20">
@@ -17,13 +18,13 @@ async function ContactPage({ params }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-16 gap-8">
         <Card>
           <CardContent className="py-8">
-            <ContactForm locale={locale} />
+            <ContactForm />
           </CardContent>
         </Card>
         <div>
           <Card>
             <CardContent className="py-8">
-              <Socials locale={locale} />
+              <Socials />
             </CardContent>
           </Card>
         </div>

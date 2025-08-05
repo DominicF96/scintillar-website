@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Locale } from "@/i18n.config";
+import { Locale } from "@/lib/config/i18n-config";
 import { OGTypesEnum } from "@/types/og.types";
 import * as i18n from "@/i18n/web/pages/home/home.page.meta.i18n";
 

@@ -192,3 +192,46 @@ h6 {
     @apply text-lg;
   }
 }
+
+/* NProgress Styling */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: hsl(var(--primary));
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px hsl(var(--primary)), 0 0 5px hsl(var(--primary));
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove the default spinner since we disabled it */
+#nprogress .spinner {
+  display: none;
+}
+
+/* For apps with fixed navbar, position the bar below it */
+.has-navbar #nprogress .bar {
+  top: calc(2rem + 1px); /* py-2 (0.5rem * 2) + py-4 on md (1rem * 2) + border */
+}
+
+@media (min-width: 768px) {
+  .has-navbar #nprogress .bar {
+    top: calc(4rem + 1px); /* py-4 (1rem * 4) + border */
+  }
+}
